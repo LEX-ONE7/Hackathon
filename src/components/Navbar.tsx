@@ -25,7 +25,6 @@ const Navbar = () =>  {
         <li className="nav-item">
           <a className="nav-link" aria-current ="page" href="/">Nos CLubs</a>
         </li>
-        <li><a href="/"><img className="logo img-center borderRadius-10" src="https://cdn.discordapp.com/attachments/1048366870958444586/1054848988731408425/IMG_1085.png"></img></a></li>
       </ul>
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
