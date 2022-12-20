@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const Inscriptions = () => {
@@ -53,6 +54,8 @@ const Inscriptions = () => {
   <span className="input-group-text" id="addon-wrapping">Ceinture</span>
   <input type="text" className="form-control"/>
 </div>
+<Footer/>
+
 </div>
         );
     };

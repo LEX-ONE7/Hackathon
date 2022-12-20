@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Accueil from './pages/Accueil';
 import Competitions from './pages/Competitions';
 import Inscriptions from './pages/Inscriptions';
+import Gestion from './pages/Gestion';
+import EditAthlete from './components/gestion/EditAthlete';
+import AddAthlete from './components/gestion/AddAthlete';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +17,9 @@ const router = createBrowserRouter([
   { path: '/', element: <Accueil /> },
   { path: '/competitions', element: <Competitions /> },
   { path: '/inscriptions', element: <Inscriptions /> },
-
+  { path: '/gestion', element: <Gestion /> },
+  { path: '/gestion/add', element: <AddAthlete /> },
+  { path: '/gestion/edit/:id', element: <EditAthlete /> },
 ]);
 root.render(
   <React.StrictMode>
