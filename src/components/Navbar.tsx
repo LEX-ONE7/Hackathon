@@ -13,7 +13,7 @@ const Navbar = () =>  {
     <a className="nav-link" href="/inscriptions">Inscriptions</a>
   </li>
   <li className="nav-item">
-    <a className="nav-link" href="/gestion">Gestion</a>
+    <a className="nav-link" href="/club">Club</a>
   </li>
   <form className="d-flex" role="search">
       <input className="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search"/>

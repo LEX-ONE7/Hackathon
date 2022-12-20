@@ -1,43 +1,31 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react'
-import axios from "axios";
-import { useNavigate, useParams } from 'react-router-dom';
+import * as React from 'react'; 
+import { useState } from 'react'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const EditAthlete = () => {
+const AddClub = () => {
     const [nom, setNom] = useState('');
     const [prenom, setPrenom] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const history = useNavigate();
-    const { id } = useParams();
  
-    const updateClient = async (e: any) => {
+    const saveClient = async (e: any) => {
         e.preventDefault();
-        await axios.patch(`http://localhost:8080/clients/${id}`,{
+        // A CHANGER "clients"
+        await axios.post('http://localhost:8080/Club/',{
             nom: nom,
             prenom: prenom,
             phone: phone,
             email: email
         });
 //        history.push("/");
-        history('/gestion');
-    }
- 
-    useEffect(() => {
-        getClientById();
-    }, []);
- 
-    const getClientById = async () => {
-        const response = await axios.get(`http://localhost:8080/clients/${id}`);
-        setNom(response.data.nom);
-        setPrenom(response.data.prenom);
-        setPhone(response.data.phone);
-        setEmail(response.data.email);
+        history('/clients');
     }
  
     return (
         <div>
-            <form onSubmit={ updateClient }>
+            <form onSubmit={ saveClient }>
                 <div className="field">
                     <label className="label">Nom</label>
                     <input 
@@ -83,11 +71,11 @@ const EditAthlete = () => {
                 </div>
 
                 <div className="field">
-                    <button className="button is-primary">Update</button>
+                    <button className="button is-primary">Save</button>
                 </div>
             </form>
         </div>
     )
 }
  
-export default EditAthlete
+export default AddClub

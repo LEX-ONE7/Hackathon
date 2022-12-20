@@ -5,10 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Accueil from './pages/Accueil';
 import Competitions from './pages/Competitions';
-import Inscriptions from './pages/Inscriptions';
-import Gestion from './pages/Gestion';
-import EditAthlete from './components/gestion/EditAthlete';
-import AddAthlete from './components/gestion/AddAthlete';
+import EditAthlete from './components/gestion/EditClub';
+import AddAthlete from './components/gestion/AddClub';
+import Athletes from './pages/Athletes';
+import Club from './pages/Club';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,10 +16,10 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
   { path: '/', element: <Accueil /> },
   { path: '/competitions', element: <Competitions /> },
-  { path: '/inscriptions', element: <Inscriptions /> },
-  { path: '/gestion', element: <Gestion /> },
-  { path: '/gestion/add', element: <AddAthlete /> },
-  { path: '/gestion/edit/:id', element: <EditAthlete /> },
+  { path: '/athletes', element: <Athletes /> },
+  { path: '/club', element: <Club /> },
+  { path: '/club/add', element: <AddAthlete /> },
+  { path: '/club/edit/:id', element: <EditAthlete /> },
 ]);
 root.render(
   <React.StrictMode>
