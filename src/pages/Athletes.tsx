@@ -6,20 +6,20 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
  
 const Athlete = () => {
-    const [clients, setClient] = useState([]);
+    const [athletes, setAthlete] = useState([]);
  
     useEffect(() => {
-        getClients();
+        getAthlete();
     }, []);
  
-    const getClients = async () => {
+    const getAthlete = async () => {
         const response = await axios.get('http://localhost:8080/Inscription');
-        setClient(response.data);
+        setAthlete(response.data);
     }
  
-    const deleteClient = async (id: number) => {
+    const deleteAthete = async (id: number) => {
         await axios.delete(`http://localhost:8080/Inscription/${id}`);
-        getClients();
+        getAthlete();
     }
  
     return (
@@ -30,21 +30,24 @@ const Athlete = () => {
                 <thead>
                     <tr>
                         <th>Ref</th>
-                        <th>Nom</th>
-                        <th>N#</th>
+                        <th>Nom du Club</th>
                         <th>Categorie</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Date de naissance</th>
+                        <th>Sexe</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { clients.map((client: any, index) => (
-                        <tr key={ client.id }>
+                    { athletes.map((ath: any, index) => (
+                        <tr key={ ath.id }>
                             <td>{ index + 1 }</td>
-                            <td>{ client.Nom_Clubs }</td>
-                            <td>{ client.Nombres_de_joeurs }</td>
-                            <td>{ client.Categories }</td>
+                            <td>{ ath.Nom_Clubs }</td>
+                            <td>{ ath.Nombres_de_joeurs }</td>
+                            <td>{ ath.Categories }</td>
                             <td>
-                                <Link to={`/clients/edit/${client.id}`} className="button is-small is-info">Edit</Link>
-                                <button onClick={ () => deleteClient(client.id) } className="button is-small is-danger">Delete</button>
+                                <Link to={`/athlete/edit/${athlete.id}`} className="button is-small is-info">Edit</Link>
+                                <button onClick={ () => deleteAthlete(athlete.id) } className="button is-small is-danger">Delete</button>
                             </td>
                         </tr>
                     )) }
