@@ -2,24 +2,37 @@ import * as React from 'react';
 const Navbar = () =>  {
     return (
 
-<ul className="navbar nav justify-content-center bg-info fs-4" style={{height:"10rem"}}>
-  <li className="nav-item">
-    <a className="nav-link active" aria-current="page" href="/">Accueil</a>
-  </li>
-  <li className="nav-item">
-    <a className="nav-link" href="/competitions">Competitions</a>
-  </li>
-  <li className="nav-item">
-    <a className="nav-link" href="/inscriptions">Inscriptions</a>
-  </li>
-  <li className="nav-item">
-    <a className="nav-link" href="/gestion">Gestion</a>
-  </li>
-  <form className="d-flex" role="search">
-      <input className="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search"/>
-      <button className="btn btn-outline-primary" type="submit">Rechercher</button>
-    </form>
-</ul>
+<nav className="navbar navbar-expand-lg bg-info fs-4" style={{height:"6rem"}}>
+  <div className="container-fluid">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <a className="navbar-brand" href="#">CMS PF</a>
+    <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/">Accueil</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" aria-current ="page" href="/competitions">Competitions</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/inscriptions">Inscriptions</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" aria-current="page" href="/gestion">Gestion</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" aria-current ="page" href="/">Nos CLubs</a>
+        </li>
+      </ul>
+      <form className="d-flex" role="search">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
         );
     };
 
