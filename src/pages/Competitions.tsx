@@ -6,7 +6,7 @@ const Competitions = () => {
       
         <div className="container-fluid">
         <Navbar/>
-        <img src="https://www.lacouture62.fr/wp-content/uploads/2016/09/volleyball.jpg" className="img-center" style={{maxWidth: "100%"}} alt="..."/>
+        <img src="https://www.lacouture62.fr/wp-content/uploads/2016/09/volleyball.jpg" className="img-fluid" style={{width: "100%", height:"50rem"}} alt="..."/>
 
       <div className="row mt-4 mb-4">
         <h1 className='text-center'>Competitions</h1>
