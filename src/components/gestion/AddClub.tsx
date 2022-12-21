@@ -5,20 +5,17 @@ import { useNavigate } from 'react-router-dom';
 
 const AddClub = () => {
     const [nom, setNom] = useState('');
-    const [prenom, setPrenom] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
+    const [nbreJoueurs, setNbreJoueurs] = useState('');
+    const [categorie, setCategorie] = useState('');
     const history = useNavigate();
  
-    const saveClient = async (e: any) => {
+    const saveClub = async (e: any) => {
         e.preventDefault();
         // A CHANGER "clients"
         await axios.post('http://localhost:8080/club/',{
-            nom: nom,
-            prenom: prenom,
-            phone: phone,
-            email: email
-           
+            Nom_Clubs: nom,
+            Nombres_de_joeurs: nbreJoueurs,
+            Categories: categorie           
         });
 //        history.push("/");
         history('/club');
@@ -26,7 +23,7 @@ const AddClub = () => {
  
     return (
         <div>
-            <form onSubmit={ saveClient }>
+            <form onSubmit={ saveClub }>
                 <div className="field">
                     <label className="label">Nom</label>
                     <input 
@@ -43,9 +40,9 @@ const AddClub = () => {
                     <input 
                         className="input"
                         type="text"
-                        placeholder="Prenom"
-                        value={ prenom }
-                        onChange={ (e) => setPrenom(e.target.value) }
+                        placeholder="Nombre de joueurs"
+                        value={ nbreJoueurs }
+                        onChange={ (e) => setNbreJoueurs(e.target.value) }
                     />
                 </div>
  
@@ -54,9 +51,9 @@ const AddClub = () => {
                     <input 
                         className="input"
                         type="text"
-                        placeholder="Phone"
-                        value={ phone }
-                        onChange={ (e) => setPhone(e.target.value) }
+                        placeholder="Categorie"
+                        value={ categorie }
+                        onChange={ (e) => setCategorie(e.target.value) }
                     />
                 </div>
 
