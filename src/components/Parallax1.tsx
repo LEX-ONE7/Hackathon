@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Parallax } from 'react-parallax';
 const image1 =
   'https://stillmed.olympics.com/media/Images/OlympicOrg/News/2017/04/11/2017-04-11-Volleyball-thumbnail.jpg?interpolation=lanczos-none&resize=2120:1200';
