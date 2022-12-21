@@ -6,45 +6,47 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
  
 const Contacts = () => {
-    const [clubs, setClub] = useState([]);
+    const [contacts, setContact] = useState([]);
  
     useEffect(() => {
         getClub();
     }, []);
  
     const getClub = async () => {
-        const response = await axios.get('http://localhost:8080/Club');
-        setClub(response.data);
+        const response = await axios.get('http://localhost:8080/Contact');
+        setContact(response.data);
     }
  
-    const deleteClub = async (id: number) => {
-        await axios.delete(`http://localhost:8080/Club/${id}`);
+    const deleteContact = async (id: number) => {
+        await axios.delete(`http://localhost:8080/Contact/${id}`);
         getClub();
     }
  
     return (
         <div>
             <Navbar/>
-            <Link to="/club/add" className="button is-primary mt-2">Add New</Link>
+            <Link to="/contact/add" className="button is-primary mt-2">Add New</Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
                     <tr>
                         <th>Ref</th>
-                        <th>Nom</th>
-                        <th>N#</th>
-                        <th>Categorie</th>
+                        <th>Nom du club</th>
+                        <th>Nom, Prenom du President</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                        <th>Nom, Prenom du Coach</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { clubs.map((clb: any, index) => (
-                        <tr key={ clb.id }>
+                    { contacts.map((con: any, index) => (
+                        <tr key={ con.id }>
                             <td>{ index + 1 }</td>
-                            <td>{ clb.Nom_Clubs }</td>
-                            <td>{ clb.Nombres_de_joeurs }</td>
-                            <td>{ clb.Categories }</td>
+                            <td>{ con.Nom_Clubs }</td>
+                            <td>{ con.Nombres_de_joeurs }</td>
+                            <td>{ con.Categories }</td>
                             <td>
-                                <Link to={`/club/edit/${clb.id}`} className="button is-small is-info">Edit</Link>
-                                <button onClick={ () => deleteClub(clb.id) } className="button is-small is-danger">Delete</button>
+                                <Link to={`/club/edit/${con.id}`} className="button is-small is-info">Edit</Link>
+                                <button onClick={ () => deleteContact(con.id) } className="button is-small is-danger">Delete</button>
                             </td>
                         </tr>
                     )) }

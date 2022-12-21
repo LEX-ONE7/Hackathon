@@ -12,7 +12,7 @@ const EditClub = () => {
  
     const updateClub = async (e: any) => {
         e.preventDefault();
-        await axios.patch(`http://localhost:8080//Club/${id}`,{
+        await axios.patch(`http://localhost:8080/Club/${id}`,{
             Nom_Clubs: nom,
             Nombres_de_joeurs: nbreJoueurs,
             Categories: categorie,
