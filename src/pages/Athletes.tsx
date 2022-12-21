@@ -17,7 +17,7 @@ const Athlete = () => {
         setAthlete(response.data);
     }
  
-    const deleteAthete = async (id: number) => {
+    const deleteAthlete = async (id: number) => {
         await axios.delete(`http://localhost:8080/Inscription/${id}`);
         getAthlete();
     }
@@ -25,7 +25,7 @@ const Athlete = () => {
     return (
         <div>
             <Navbar/>
-            <Link to="/athlete/Club/add" className="button is-primary mt-2">Add New</Link>
+            <Link to="/athlete/add" className="button is-primary mt-2">Add New</Link>
             <table className="table is-striped is-fullwidth">
                 <thead>
                     <tr>
@@ -42,12 +42,16 @@ const Athlete = () => {
                     { athletes.map((ath: any, index) => (
                         <tr key={ ath.id }>
                             <td>{ index + 1 }</td>
-                            <td>{ ath.Nom_Clubs }</td>
-                            <td>{ ath.Nombres_de_joeurs }</td>
-                            <td>{ ath.Categories }</td>
+                            <td>{ ath.NomDuClub }</td>
+                            <td>{ ath.Categorie }</td>
+                            <td>{ ath.Nom }</td>
+                            <td>{ ath.Prenom }</td>
+                            <td>{ ath.DateDeNaissance }</td>
+                            <td>{ ath.Sexe }</td>
+
                             <td>
-                                <Link to={`/athlete/edit/${athlete.id}`} className="button is-small is-info">Edit</Link>
-                                <button onClick={ () => deleteAthlete(athlete.id) } className="button is-small is-danger">Delete</button>
+                                <Link to={`/athlete/edit/${ath.id}`} className="button is-small is-info">Edit</Link>
+                                <button onClick={ () => deleteAthlete(ath.id) } className="button is-small is-danger">Delete</button>
                             </td>
                         </tr>
                     )) }

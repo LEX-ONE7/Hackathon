@@ -13,14 +13,15 @@ const AddClub = () => {
     const saveClient = async (e: any) => {
         e.preventDefault();
         // A CHANGER "clients"
-        await axios.post('http://localhost:8080/Club/',{
+        await axios.post('http://localhost:8080/club/',{
             nom: nom,
             prenom: prenom,
             phone: phone,
             email: email
+           
         });
 //        history.push("/");
-        history('/clients');
+        history('/club');
     }
  
     return (

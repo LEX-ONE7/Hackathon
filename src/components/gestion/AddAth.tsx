@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const AddClub = () => {
+const AddAthelete = () => {
     const [nom, setNom] = useState('');
     const [prenom, setPrenom] = useState('');
     const [phone, setPhone] = useState('');
@@ -14,14 +14,14 @@ const AddClub = () => {
     const saveClient = async (e: any) => {
         e.preventDefault();
         // A CHANGER "clients"
-        await axios.post('http://localhost:8080/Club/',{
+        await axios.post('http://localhost:8080/Inscription/',{
             nom: nom,
             prenom: prenom,
             phone: phone,
             email: email
         });
 //        history.push("/");
-        history('/clients');
+        history('/Inscription');
     }
  
     return (
@@ -70,4 +70,4 @@ const AddClub = () => {
     )
 }
  
-export default AddClub
+export default AddAthelete
