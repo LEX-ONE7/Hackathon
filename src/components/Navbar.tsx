@@ -39,10 +39,10 @@ const Navbar = () =>  {
           <a className="nav-link text-white " aria-current="page" href="/inscriptions">Inscriptions</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white " aria-current="page" href="/gestion">Gestion</a>
+          <a className="nav-link" aria-current="page" href="/gestion">Gestion</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white " aria-current ="page" href="/">Clubs</a>
+          <a className="nav-link" aria-current ="page" href="/">Nos CLubs</a>
         </li>
       </ul>
       <form className="d-flex" role="search">
