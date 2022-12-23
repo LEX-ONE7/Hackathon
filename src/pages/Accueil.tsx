@@ -5,13 +5,13 @@ import SliderAccueil from '../components/SliderAccueil';
 const Accueil = () => {
     return (
       <div>
-<Navbar/>
-<SliderAccueil/>
-<hr/>
-<hr/>
-<Footer/>
+        <Navbar />
+        <SliderAccueil />
+        <hr />
+        <hr />
+        <Footer />
 
-</div>
+      </div>
         );
     };
     

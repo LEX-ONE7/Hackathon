@@ -3,69 +3,118 @@ import * as React from 'react';
 import { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const AddAthelete = () => {
-    const [nom, setNom] = useState('');
-    const [prenom, setPrenom] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
+    const [NomDuClub, setNomDuClub] = useState('');
+    const [Categorie, setCategorie] = useState('Athletes');
+    const [Nom, setNom] = useState('');
+    const [Prenom, setPrenom] = useState('');
+    const [DateDeNaissance, setDateDeNaissance] = useState('');
+    const [Sexe, setSexe] = useState('Masculin');
     const history = useNavigate();
  
-    const saveClient = async (e: any) => {
+    const saveAthlete = async (e: any) => {
         e.preventDefault();
         // A CHANGER "clients"
-        await axios.post('http://localhost:8080/Inscription/',{
-            nom: nom,
-            prenom: prenom,
-            phone: phone,
-            email: email
+        await axios.post('http://localhost:8080/athlete/',{
+            NomDuClub: NomDuClub,
+            Categorie: Categorie,
+            Nom: Nom,
+            Prenom: Prenom,
+            DateDeNaissance: DateDeNaissance,
+            Sexe: Sexe
+        }).then( (r) => {
+            console.log(r);
+        }).catch( (e) => {
+            console.log(e);
         });
-//        history.push("/");
-        history('/Inscription');
+        history('/athletes');
+    }
+
+    const cancel = () => {
+        history('/athletes');
     }
  
     return (
         <div>
-            <form onSubmit={ saveClient }>
-                <div className="field">
-                    <label className="label">Nom</label>
+            <Navbar />
+        <div className='row m-4'>
+            <div className='col'></div>
+            <div className='col-6 border bg-light'>
+            <form onSubmit={ saveAthlete }>
+                <div className="field m-3">
+                    <label className="form-label">nom du Club</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
-                        placeholder="Nom"
-                        value={ nom }
+                        placeholder="saisir le nom du Club"
+                        value={ NomDuClub }
+                        onChange={ (e) => setNomDuClub(e.target.value) }
+                    />
+                </div>
+ 
+                <div className="field m-3">
+                    <label className="form-label">Categorie</label>
+                    <select className='form-select' onChange={ (e) => setCategorie(e.target.value) }>
+                        <option value="Athletes">Athletes</option>
+                        <option value="Arbitre">Arbitre</option>
+                        <option value="Coachs">Coachs</option>
+                    </select>
+                </div>
+ 
+                <div className="field m-3">
+                    <label className="form-label">Nom de l'athlete</label>
+                    <input 
+                        className="form-control"
+                        type="text"
+                        placeholder="saisir nom de l'athlete"
+                        value={ Nom }
                         onChange={ (e) => setNom(e.target.value) }
                     />
                 </div>
- 
-                <div className="field">
-                    <label className="label">Nombre de Joueurs</label>
+               
+                <div className="field m-3">
+                    <label className="form-label">Prenom de l'athlete</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
-                        placeholder="Prenom"
-                        value={ prenom }
+                        placeholder="saisir prenom de l'athlete"
+                        value={ Prenom }
                         onChange={ (e) => setPrenom(e.target.value) }
                     />
                 </div>
- 
-                <div className="field">
-                    <label className="label">Categorie</label>
+               
+                <div className="field m-3">
+                    <label className="form-label">DDN</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
-                        placeholder="Phone"
-                        value={ phone }
-                        onChange={ (e) => setPhone(e.target.value) }
+                        placeholder="saisir sa date de naissance"
+                        value={ DateDeNaissance }
+                        onChange={ (e) => setDateDeNaissance(e.target.value) }
                     />
                 </div>
-
+               
+                <div className="field m-3">
+                    <label className="form-label">Sexe</label>
+                    <select className='form-select' onChange={ (e) => setSexe(e.target.value) }>
+                        <option value="Masculin">Masculin</option>
+                        <option value="Feminin">Feminin</option>
+                    </select>
+                </div>
                
 
-                <div className="field">
-                    <button className="button is-primary">Sauvegarder</button>
+                <div className="field m-3">
+                    <button className="btn btn-success mx-1">Sauvegarder</button>
+                    <button onClick={ cancel } className="btn btn-secondary mx-1 my-2">Annuler</button>
                 </div>
             </form>
+            </div>
+            <div className='col'></div>
+        </div>
+            <Footer />
         </div>
     )
 }

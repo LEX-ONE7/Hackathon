@@ -7,21 +7,20 @@ const Footer = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4 col-md-4 item">
-                        <h3>Accueil</h3>
+                        <ul><li><h3><a href="/">Accueil</a></h3></li></ul>
+                    </div>
+                    <div className="col-sm-4 col-md-4 item">
                         <ul>
-                            <a href="#"/>
+                            <li>
+                            <a href="/Competitions">
+                                <h3>Compétitions</h3>
+                            </a>
+                            </li>
                         </ul>
                     </div>
                     <div className="col-sm-4 col-md-4 item">
-                        <h3>Compétitions</h3>
                         <ul>
-                            <a href="#"/>
-                        </ul>
-                    </div>
-                    <div className="col-sm-4 col-md-4 item">
-                        <h3>Inscriptions</h3>
-                        <ul>
-                            <a href="#"/>
+                            <a href="/Athletes"><h3>Athletes</h3></a>
                         </ul>
                     </div>
                     </div> <div className='row'>

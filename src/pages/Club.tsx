@@ -24,15 +24,19 @@ const Club = () => {
  
     return (
         <div>
-            <Navbar/>
-            <Link to="/club/add" className="button is-primary mt-2">Add New</Link>
-            <table className="table is-striped is-fullwidth">
-                <thead>
+            <Navbar />
+        <div className='row'>
+            <div className='col'></div>
+            <div className='col-8'>
+            <Link to="/clubs/add" className="btn btn-primary my-4">Ajouter</Link>
+            <table className="table table-striped">
+                <thead className='table-dark'>
                     <tr>
                         <th>Ref</th>
                         <th>Nom</th>
                         <th>N#</th>
                         <th>Categorie</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,15 +47,17 @@ const Club = () => {
                             <td>{ clb.Nombres_de_joeurs }</td>
                             <td>{ clb.Categories }</td>
                             <td>
-                                <Link to={`/club/edit/${clb.id}`} className="button is-small is-info">Edit</Link>
-                                <button onClick={ () => deleteClub(clb.id) } className="button is-small is-danger">Delete</button>
+                                <Link to={`/clubs/edit/${clb.id}`} className="btn btn-sm btn-info mx-1">Edit</Link>
+                                <button onClick={ () => deleteClub(clb.id) } className="btn btn-sm btn-danger mx-1">Delete</button>
                             </td>
                         </tr>
                     )) }
-                     
                 </tbody>
             </table>
-            <Footer/>
+            </div>
+            <div className='col'></div>
+        </div>
+            <Footer />
         </div>
     )
 }

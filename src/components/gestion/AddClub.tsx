@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const AddClub = () => {
     const [nom, setNom] = useState('');
@@ -18,16 +20,24 @@ const AddClub = () => {
             Categories: categorie           
         });
 //        history.push("/");
-        history('/club');
+        history('/clubs');
+    }
+
+    const cancel = () => {
+        history('/clubs');
     }
  
     return (
         <div>
+            <Navbar />
+        <div className='row m-4'>
+            <div className='col'></div>
+            <div className='col-6 border bg-light'>
             <form onSubmit={ saveClub }>
-                <div className="field">
-                    <label className="label">Nom</label>
+                <div className="field m-3">
+                    <label className="form-label">Nom</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
                         placeholder="Nom"
                         value={ nom }
@@ -35,10 +45,10 @@ const AddClub = () => {
                     />
                 </div>
  
-                <div className="field">
-                    <label className="label">Nombre de Joueurs</label>
+                <div className="field m-3">
+                    <label className="form-label">Nombre de Joueurs</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
                         placeholder="Nombre de joueurs"
                         value={ nbreJoueurs }
@@ -46,10 +56,10 @@ const AddClub = () => {
                     />
                 </div>
  
-                <div className="field">
-                    <label className="label">Categorie</label>
+                <div className="field m-3">
+                    <label className="form-label">Categorie</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
                         placeholder="Categorie"
                         value={ categorie }
@@ -59,10 +69,15 @@ const AddClub = () => {
 
                
 
-                <div className="field">
-                    <button className="button is-primary">Sauvegarder</button>
+                <div className="field m-3">
+                    <button className="btn btn-success mx-1">Sauvegarder</button>
+                    <button onClick={ cancel } className="btn btn-secondary mx-1 my-2">Annuler</button>
                 </div>
             </form>
+            </div>
+            <div className='col'></div>
+        </div>
+            <Footer />
         </div>
     )
 }

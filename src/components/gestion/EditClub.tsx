@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState, useEffect } from 'react'
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const EditClub = () => {
     const [nom, setNom] = useState('');
@@ -18,7 +20,11 @@ const EditClub = () => {
             Categories: categorie
         });
 //        history.push("/");
-        history('/club');
+        history('/clubs');
+    }
+
+    const cancel = () => {
+        history('/clubs');
     }
  
     useEffect(() => {
@@ -34,11 +40,15 @@ const EditClub = () => {
  
     return (
         <div>
+            <Navbar />
+        <div className='row m-4'>
+            <div className='col'></div>
+            <div className='col-6 border bg-light'>
             <form onSubmit={ updateClub }>
-                <div className="field">
-                    <label className="label">Nom</label>
+                <div className="field m-3">
+                    <label className="form-label">Nom</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
                         placeholder="Nom"
                         value={ nom }
@@ -46,10 +56,10 @@ const EditClub = () => {
                     />
                 </div>
  
-                <div className="field">
-                    <label className="label">NbreJoueurs</label>
+                <div className="field m-3">
+                    <label className="form-label">NbreJoueurs</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
                         placeholder="nbre Joueurs"
                         value={ nbreJoueurs }
@@ -57,22 +67,26 @@ const EditClub = () => {
                     />
                 </div>
  
-                <div className="field">
-                    <label className="label">Categorie</label>
+                <div className="field m-3">
+                    <label className="form-label">Categorie</label>
                     <input 
-                        className="input"
+                        className="form-control"
                         type="text"
                         placeholder="categorie"
                         value={ categorie }
                         onChange={ (e) => setCategorie(e.target.value) }
                     />
                 </div>
-
                 
-                <div className="field">
-                    <button className="button is-primary">Mettre a Jour</button>
+                <div className="field m-3">
+                    <button className="btn btn-success mx-1">Mettre a Jour</button>
+                    <button onClick={ cancel } className="btn btn-secondary mx-1 my-2">Mettre a Jour</button>
                 </div>
             </form>
+            </div>
+            <div className='col'></div>
+        </div>
+            <Footer />
         </div>
     )
 }

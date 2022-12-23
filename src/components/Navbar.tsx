@@ -6,23 +6,20 @@ const Navbar = () =>  {
   <div className="container-fluid">
   <a className="navbar-brand " href="/">
         <img
-        className="logo img-center rounded-circle mt-2 my-2 "
+        alt=""
+        className="logo img-center rounded-circle mt-2 my-2"
           width="150"
           height="150"
-          src="
-        
-          https://cdn.discordapp.com/attachments/1048366870958444586/1054848988731408425/IMG_1085.png
-        
-        "
+          src="https://cdn.discordapp.com/attachments/1048366870958444586/1054848988731408425/IMG_1085.png"
         />
-        </a>
+  </a>
         <button
         className="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
-        aria-expandeed="false"
+        aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon"></span>
@@ -30,19 +27,19 @@ const Navbar = () =>  {
     <div className="collapse navbar-collapse " id="navbarTogglerDemo03">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active text-white " aria-current="page" href="/">Accueil</a>
+          <a className="nav-link active text-white" aria-current="page" href="/">Accueil</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white " aria-current ="page" href="/competitions">Competitions</a>
+          <a className="nav-link text-white" aria-current ="page" href="/competitions">Competitions</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white " aria-current="page" href="/inscriptions">Inscriptions</a>
+          <a className="nav-link text-white" aria-current="page" href="/clubs">Clubs</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" aria-current="page" href="/gestion">Gestion</a>
+          <a className="nav-link text-white" aria-current="page" href="/athletes">Athletes</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" aria-current ="page" href="/">Nos CLubs</a>
+          <a className="nav-link text-white" aria-current ="page" href="/contacts">Contacts</a>
         </li>
       </ul>
       <form className="d-flex" role="search">
